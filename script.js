@@ -46,7 +46,7 @@ const photoData = [
         contact:"9987489786",
         date: "2024-05-10",
         story: "Sunlight filtering through the dense canopy, illuminating a path that seemed to go on forever. A walk of discovery and serenity.",
-        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsodM99eFaaB_pOgUwgQ_ggjSvXAFSvBpraL9sDGMYSuAUEro_UnCqUXeiHUCzAIlVOSQ&usqp=CAU",
+        imgSrc: "https://tse4.mm.bing.net/th/id/OIP.lqDs_4Gr3uaLtLjESSYMoQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d169498.4526684781!2d8.0600000!3d48.0000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479086a42a48a3df%3A0x400d1820380f2d0!2sBlack%20Forest!5e0!3m2!1sen!2sus!4v1675890000003!5m2!1sen!2sus"
     },
     {
@@ -70,7 +70,7 @@ const photoData = [
         contact:"9987489786",
         date: "2024-06-22",
         story: "Just as the sun dipped below the horizon, the peaks lit up in a vibrant red, known as 'Alpenglow.' A magical and fleeting moment of adventure.",
-        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ48YuBjOg9s88Zws7RFHiDES05VzMUAB1XR-0qzBnOuak-fxdlY9D1jsau0WMhngSfE4c&usqp=CAU",
+        imgSrc: "https://images.squarespace-cdn.com/content/v1/56578c63e4b0f06765e83ad4/8a158db5-d889-4bbe-9df9-2d02069d82fa/alpenglow+glacier+peak.jpeg?format=1500w",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.688881329596!2d12.1650000!3d46.5166670!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47783352054a84e3%3A0x33b5c65a06941b21!2sDolomites!5e0!3m2!1sen!2sus!4v1675890000005!5m2!1sen!2sus"
     },
     {
@@ -82,7 +82,7 @@ const photoData = [
         contact:"9987489786",
         date: "2024-04-18",
         story: "The desert is often seen as barren, but in spring, it bursts with color. This single cactus bloom stood defiant and beautiful against the arid landscape.",
-        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqRuVqmaGHyKIOhIMxD-QK94oStk6rHnAI72asC2k00NLYKbD7LnDlXRCaoIfftEWJWj0&usqp=CAU",
+        imgSrc: "https://wallpapers.com/images/hd/sunny-cactus-arizona-desert-5yz6gtc3394vaan6.jpg",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1732934.3414237618!2d-112.52187056250001!3d32.91000020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d1000000000001%3A0x1de16f1a82aeb92!2sSonoran%20Desert!5e0!3m2!1sen!2sus!4v1675890000006!5m2!1sen!2sus"
     },
     {
@@ -94,7 +94,7 @@ const photoData = [
         contact:"9987489786",
         date: "2024-01-30",
         story: "The silence of the arctic is profound, broken only by the calving of glaciers. This view captures the immense, cold beauty of a world on the edge.",
-        imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2NF2_rjFptkzlNjkicpSWbiyATtRhcpfTwcHaxLqOFnHOex6PIbDow9XCpQQm5D5Ecgo&usqp=CAU",
+        imgSrc: "https://vulplex.com/images/featured/Frozen-Splendor-Captivating-8k-Ultra-Hd-Wallpaper-Showcasing-the-Breathtaking-Antarctic-Glacier-and-its-Serene-Bluish-Waters-64be4ea0ef282.jpg",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15449270.39517374!2d-53.27218388836592!3d71.70693600946026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x44f28f41349f7f8b%3A0x90f771c536449191!2sGreenland!5e0!3m2!1sen!2sus!4v1675890000007!5m2!1sen!2sus"
     },
     {
