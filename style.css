@@ -1,0 +1,547 @@
+:root {
+    /* Typography */
+    --font-title: 'Playfair Display SC', serif;
+    --font-body: 'Nunito Sans', sans-serif;
+    
+    /* Colors */
+    --color-text: #333333;
+    --color-bg: #fdfcfb; /* A very light, warm white */
+    --color-primary: #3a5a40; /* Deep, calm forest green */
+    --color-secondary: #a3b18a; /* Muted, earthy green */
+    --color-border: #e0e0e0;
+    
+    /* Animation */
+    --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* --- 1. Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s var(--ease-out-cubic);
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* --- 2. Main Header --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    z-index: 1000;
+    background: rgba(253, 252, 251, 0.85); /* Semi-transparent bg */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(224, 224, 224, 0.5);
+    transition: background 0.3s ease;
+}
+
+.logo {
+    font-family: var(--font-title);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 0.25rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-primary);
+    transition: width 0.4s var(--ease-out-cubic);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    color: var(--color-text);
+    transition: transform 0.3s ease;
+}
+
+.nav-icon:hover {
+    transform: scale(1.1);
+}
+
+/* --- 3. View Management (JS-controlled "Pages") --- */
+.view {
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-in-out-cubic);
+    padding-top: 80px; /* Offset for fixed header */
+}
+
+.view.active {
+    display: block; /* Shown by JS */
+    opacity: 1;
+}
+
+/* --- 4. Home View (Hero Section) --- */
+#home-view {
+    height: 100vh;
+    padding: 0; /* Fullscreen hero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('https://wallpaperaccess.com/full/87704.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    position: relative; /* Added for absolute positioning */
+}
+
+.hero-content {
+    transform: translateY(-40px); /* Adjust for header height */
+    animation: fadeIn 1.2s var(--ease-out-cubic);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* New animation for the button */
+@keyframes fadeInUpButton {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    font-size: 1rem;
+    font-weight: 600;
+    background: white;
+    color: var(--color-primary);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s var(--ease-out-cubic);
+}
+
+/* Position the hero button at the bottom */
+#home-view .cta-button {
+    position: absolute;
+    bottom: 5rem; /* 5rem from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    animation: fadeInUpButton 1.2s var(--ease-out-cubic) 0.5s; /* Add a separate animation */
+    animation-fill-mode: backwards; /* Start from invisible state */
+}
+
+.cta-button:hover {
+    background: var(--color-bg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+/* --- 5. Gallery View & Photo Cards --- */
+.gallery-container {
+    max-width: 800px; /* Single-column feed */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.gallery-card {
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    cursor: pointer;
+    
+    /* Scroll Fade-in Animation */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s var(--ease-out-cubic) 0.1s;
+}
+
+/* JS adds .is-visible when in viewport */
+.gallery-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-card:hover {
+    /* Subtle zoom/expand on hover */
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.gallery-card img {
+    width: 100%;
+}
+
+.card-info {
+    padding: 1.5rem 2rem;
+}
+
+.card-info h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-info p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* --- 6. Photo Detail View (Modal-Page) --- */
+#detail-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-bg);
+    z-index: 2000;
+    display: flex;
+    
+    /* Slide-up animation */
+    transform: translateY(100%);
+    transition: transform 0.6s var(--ease-in-out-cubic);
+}
+
+#detail-view.active {
+    transform: translateY(0);
+}
+
+.close-detail {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-text);
+    cursor: pointer;
+    z-index: 2010;
+}
+
+.detail-image {
+    flex: 0 0 65%; /* 65% width */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.detail-content {
+    flex: 0 0 35%; /* 35% width */
+    height: 100%;
+    padding: 4rem 3rem;
+    overflow-y: auto;
+}
+
+.detail-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.metadata-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.metadata-list li {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.metadata-list li strong {
+    font-weight: 600;
+    color: var(--color-text);
+    margin-right: 0.5rem;
+    width: 100px;
+}
+
+.metadata-list li span {
+    font-weight: 300;
+    color: #555;
+}
+
+.photo-story {
+    border-top: 1px solid var(--color-border);
+    padding-top: 2rem;
+}
+
+.photo-story h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.photo-story p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* New styles for the map */
+.map-container {
+    border-top: 1px solid var(--color-border);
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+.map-container h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+#detail-map-iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    border-radius: 12px;
+    background: #f0f0f0; /* Placeholder bg color */
+}
+
+/* --- 7. Overlays (Categories & Filter) --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Fade-in animation */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-content {
+    background: var(--color-bg);
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    
+    /* Zoom-in animation */
+    transform: scale(0.9);
+    transition: transform 0.4s var(--ease-out-cubic);
+}
+
+.overlay.active .overlay-content {
+    transform: scale(1);
+}
+
+.close-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.overlay-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--color-primary);
+}
+
+/* Category Overlay */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.category-link {
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 0.75rem;
+    text-align: center;
+    border-radius: 8px;
+    background: #f4f4f4;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.category-link:hover {
+    background: var(--color-secondary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Filter Overlay */
+.filter-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.filter-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.filter-form input,
+.filter-form select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.filter-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 8px;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.filter-button:hover {
+    background: #2a4a30;
+}
+
+/* --- 8. Responsive Design --- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem 1.5rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav-link {
+        font-size: 0.9rem;
+    }
+    .main-nav {
+        gap: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .gallery-container {
+        padding: 1rem;
+    }
+    
+    /* Stack detail view on mobile */
+    #detail-view {
+        flex-direction: column;
+    }
+    .detail-image {
+        flex: 0 0 40%; /* 40% height */
+    }
+    .detail-content {
+        flex: 0 0 60%; /* 60% height */
+        padding: 3rem 1.5rem;
+    }
+    .detail-content h2 {
+        font-size: 2rem;
+    }
+    .close-detail {
+        color: white; /* On top of image */
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+}
