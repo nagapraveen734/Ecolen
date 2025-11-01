@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLen - Where Earth Breathes in Frames</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo" id="nav-logo">EcoLen - Nature through Lens</div>
+        <nav class="main-nav">
+            <span class="nav-link" id="nav-home">Home</span>
+            <span class="nav-link" id="nav-categories">Categories</span>
+            <svg id="nav-search" class="nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="home-view" class="view active">
+            <div class="hero-content">
+
+                <h1>Where Earth Breathes in Frames.</h1>
+                </div>
+            <button class="cta-button" id="hero-discover-btn">Discover Gallery</button> </section>
+
+        <section id="gallery-view" class="view">
+            <div class="gallery-container" id="gallery-container">
+                </div>
+        </section>
+
+    </main>
+
+    <div id="detail-view">
+        <span class="close-detail" id="detail-close-btn">×</span>
+        <div class="detail-image" id="detail-img"></div>
+        <div class="detail-content">
+            <h2 id="detail-title"></h2>
+            
+            <ul class="metadata-list">
+                <li><strong>📍 Location:</strong> <span id="detail-location"></span></li>
+                <li><strong>🏞️ Category:</strong> <span id="detail-category"></span></li>
+                <li><strong>👤 Photographer:</strong> <span id="detail-photographer"></span></li>
+                <li><strong>🕰️ Captured:</strong> <span id="detail-date"></span></li>
+            </ul>
+            
+            <div class="photo-story">
+                <h4 id="detail-story-title">The Story</h4>
+                <p id="detail-story"></p>
+            </div>
+            
+            <div class="map-container">
+                <h4 id="detail-map-title">Location Map</h4>
+                <iframe 
+                    id="detail-map-iframe"
+                    src="" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="categories-overlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-overlay" id="categories-close-btn">×</span>
+            <h2>Categories</h2>
+            <div class="category-grid" id="category-grid">
+                </div>
+        </div>
+    </div>
+    
+    <div id="filter-overlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-overlay" id="filter-close-btn">×</span>
+            <h2>Filter Gallery</h2>
+            <form class="filter-form" id="filter-form">
+                <div class="form-group">
+                    <label for="filter-location">Location</label>
+                    <input type="text" id="filter-location" placeholder="e.g., Yellowstone">
+                </div>
+                <div class="form-group">
+                    <label for="filter-photographer">Photographer</label>
+                    <select id="filter-photographer">
+                        <option value="">All Photographers</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter-category">Category</label>
+                    <select id="filter-category">
+                        <option value="">All Categories</option>
+                        </select>
+                </div>
+                <button type="submit" class="filter-button">Apply Filters</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
